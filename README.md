@@ -1,2 +1,3 @@
 # LD42
-Cave Maze Game Made in Unity
+An Adventure game through a tomb with puzzling platforms that crumble at your feet!
+Made for the Ludam Dare #42 theme "running out of space"
