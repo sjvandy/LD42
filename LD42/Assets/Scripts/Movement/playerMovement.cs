@@ -25,15 +25,9 @@ public class playerMovement : MonoBehaviour {
 		hz = Input.GetAxis ("Horizontal");
 		vt = Input.GetAxis ("Vertical");
 
-		Vector3 targetDirection = new Vector3 (hz, 0f, vt);
-		targetDirection = Camera.main.transform.TransformDirection (targetDirection);
-		targetDirection.y = 0.0f;
+		Vector3 targetDirection = (transform.forward * vt) + (transform.right * hz);
+		transform.Translate (targetDirection*Time.deltaTime*speed);
 
-		gameObject.transform.Translate (targetDirection.normalized * Time.deltaTime * speed, Space.World);
-
-		if (targetDirection != Vector3.zero) {
-			transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation (targetDirection), Time.deltaTime * 60);
-		}
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (isGrounded || (dJump && DJump_Enabled)) {
