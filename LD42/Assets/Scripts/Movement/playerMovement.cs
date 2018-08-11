@@ -8,7 +8,12 @@ public class playerMovement : MonoBehaviour {
 	public float speed = 5, grav_multiplier = 2;
 	Rigidbody rb;
 	public bool DJump_Enabled = true;	//Double jump
+	bool keyPicked = false;
 	bool isGrounded = true, dJump = false;
+
+
+	public GameObject keyHolderPos;
+	GameObject keyHolder = null;
 
 	// Use this for initialization
 	void Start () {
@@ -60,4 +65,19 @@ public class playerMovement : MonoBehaviour {
 			Debug.Log ("False");
 		}
 	}
+
+	void OnTriggerEnter(Collider col){
+		if (col.gameObject.tag.Equals ("key")) {
+			col.transform.parent = keyHolderPos.transform;
+			col.transform.position = keyHolderPos.transform.position;
+			keyHolder = col.gameObject;
+			keyPicked = true;
+		}
+
+		if (keyPicked && col.gameObject.tag.Equals ("door")) {
+			Debug.Log ("Open Seseme");
+			Destroy (keyHolder);
+		}
+	}
+
 }

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - key
+  - door
   layers:
   - Default
   - TransparentFX
