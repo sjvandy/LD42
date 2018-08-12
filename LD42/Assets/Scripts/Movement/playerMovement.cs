@@ -25,9 +25,11 @@ public class playerMovement : MonoBehaviour {
 		hz = Input.GetAxis ("Horizontal");
 		vt = Input.GetAxis ("Vertical");
 
-		Vector3 targetDirection = (transform.forward * vt) + (transform.right * hz);
-		transform.Translate (targetDirection*Time.deltaTime*speed);
+		Vector3 targetDirection = new Vector3 (hz, 0f, vt);
+		targetDirection = Camera.main.transform.TransformDirection (targetDirection);
+		targetDirection.y = 0.0f;
 
+		gameObject.transform.Translate (targetDirection.normalized * Time.deltaTime * speed, Space.World);
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (isGrounded || (dJump && DJump_Enabled)) {
