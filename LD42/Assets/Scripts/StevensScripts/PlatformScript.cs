@@ -10,9 +10,8 @@ public class PlatformScript : MonoBehaviour {
 
 	public void OnCollisionEnter(Collision col)
 	{
-        if(col.gameObject.tag == "player")
+        if(col.gameObject.tag == "Player")
         {
-            Debug.Log("About to explode");
             StartCoroutine(FallApart());
         }
 	}
@@ -20,7 +19,7 @@ public class PlatformScript : MonoBehaviour {
     IEnumerator FallApart()
     {
         yield return new WaitForSeconds(timer);
-        Destroy(gameObject);
         Instantiate(Destroyed_Version, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

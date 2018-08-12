@@ -378,9 +378,10 @@ GameObject:
   - component: {fileID: 4894816355557530}
   - component: {fileID: 95584705907018184}
   - component: {fileID: 65900342049241398}
+  - component: {fileID: 114809034580366900}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -836,7 +837,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781048302030634}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.72, y: -0.28, z: -1.25}
+  m_LocalPosition: {x: 9.82, y: -0.43, z: 1.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4132564531662546}
@@ -2115,3 +2116,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114809034580366900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781048302030634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b69a5007c6d48faa7ed6891450f3eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Destroyed_Version: {fileID: 1180751733273404, guid: d04ae3358114b4baf87a37ce69c8c0b7,
+    type: 2}
+  timer: 0.5
