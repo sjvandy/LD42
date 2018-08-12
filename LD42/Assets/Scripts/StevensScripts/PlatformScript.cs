@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformScript : MonoBehaviour {
 
     public GameObject Destroyed_Version;
-    public int timer;
+    public float timer;
 
 
 	public void OnCollisionEnter(Collision col)
