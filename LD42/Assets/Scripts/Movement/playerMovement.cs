@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour {
 
 	float hz, vt;
-	public float speed = 5, grav_multiplier = 2;
+	public float speed = 5, grav_multiplier = 25;
 	Rigidbody rb;
 	public bool DJump_Enabled = true;	//Double jump
 	bool keyPicked = false;
@@ -29,10 +29,14 @@ public class playerMovement : MonoBehaviour {
 		targetDirection = Camera.main.transform.TransformDirection (targetDirection);
 		targetDirection.y = 0.0f;
 
+
 		gameObject.transform.Translate (targetDirection.normalized * Time.deltaTime * speed, Space.World);
+
+
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (isGrounded || (dJump && DJump_Enabled)) {
+				Debug.Log ("jump");
 				rb.AddForce (-Physics.gravity * grav_multiplier, ForceMode.Acceleration);
 				if (dJump && DJump_Enabled) {
 					dJump = false;
